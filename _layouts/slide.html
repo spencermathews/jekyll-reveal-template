@@ -67,10 +67,34 @@
       // Full list of configuration options available at:
       // https://github.com/hakimel/reveal.js#configuration
       Reveal.initialize({
-        controls: true,
-        progress: true,
-        history: true,
-        center: true,
+
+        // The "normal" size of the presentation, aspect ratio will be preserved
+        // when the presentation is scaled to fit different resolutions. Can be
+        // specified using percentage units.
+        {%if page.reveal.width and page.reveal.height%}
+          width: '{{ page.reveal.width }}',
+          height: '{{ page.reveal.height }}',
+        {% endif %}
+
+        // Display controls in the bottom right corner
+        {%if page.reveal.controls%}
+          controls: '{{ page.reveal.controls }}',
+        {% endif %}
+
+        // Display a presentation progress bar
+        {%if page.reveal.progress%}
+          progress: '{{ page.reveal.progress }}',
+        {% endif %}
+
+        // Push each slide change to the browser history
+        {%if page.reveal.history%}
+          history: '{{ page.reveal.history }}',
+        {% endif %}
+
+        // Vertical centering of slides
+        {%if page.reveal.center%}
+          center: '{{ page.reveal.center }}',
+        {% endif %}
 
         // Transition style
         {%if page.reveal.transition %}
